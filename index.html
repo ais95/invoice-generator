@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Invoice</title>
+    <link rel="shortcut icon" type="image/x-icon" href="resources/favicon.png" />
+</head>
+
+<body>
+    <nav id="main-nav" class="no-printable">
+        <ul class="btn-list">
+            <li> <button class="btn-pry" id="btnInsert"> <img src="resources/icons/add-row.png" class="icons" alt="#"> <br/> Insert Row </button> </li>
+            <li> <button class="btn-pry" id="resetPage"> <img src="resources/icons/synchronize.png" class="icons" alt="#"> <br/> Reload Form </button> </li>
+            <li> <button class="btn-pry"> <img src="resources/icons/downloading-updates.png" class="icons" alt="#"> <br/> Export PDF</button> </li>
+            <li> <button class="btn-pry" onclick="window.print()"> <img src="resources/icons/print.png" class="icons" alt="#"> <br/> Print Now</button> </li>
+            <li> <button class="btn-pry" id="btnCalc"> <img src="resources/icons/processor.png" class="icons" alt="#"> <br/> Calculate</button> </li>
+        </ul>
+    </nav>
+
+    
+    <div class="container">
+        <table class="inline-table" id="printTable">
+            <thead>
+                <tr>
+                    <th colspan="5">
+                        <p class="heading-text">
+                            <span class="title">Invoice</span><br/>
+                            <span class="text-lite">Invoice Id #56897, issues Date: 03/05/2017, Submitted</span>
+                        </p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td colspan="5">
+                        <p class="text-lite"> <strong>Invoice To</strong> </p>
+                        <p> <input type="text" class="input-form company" placeholder="Company Info"> </p>
+                        <p> <input type="text" class="input-form objects" placeholder="Invoice For"> </p>
+                        <p> <input type="text" class="input-form" id="invoicedate" value=""> </p>
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody id="row-insert">
+                <tr class="highlight-row">
+                    <th>SL No</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+
+                <tr>
+                    <td> <input type="text" class="input-form islno" value="1" readonly> </td>
+                    <td> <input type="text" class="input-form idesc"> </td>
+                    <td> <input type="text" class="input-form nkey iqnty" value="1"> </td>
+                    <td> <input type="text" class="input-form nkey urate"> </td>
+                    <td> <input type="text" class="input-form nkey price" readonly> </td>
+                </tr>                
+                   
+                <tr>
+                    <td> <input type="text" class="input-form islno" value="2" readonly> </td>
+                    <td> <input type="text" class="input-form idesc"> </td>
+                    <td> <input type="text" class="input-form nkey iqnty" value="1"> </td>
+                    <td> <input type="text" class="input-form nkey urate"> </td>
+                    <td> <input type="text" class="input-form nkey price" readonly> </td>
+                </tr>                
+                   
+                <tr>
+                    <td> <input type="text" class="input-form islno" value="3" readonly> </td>
+                    <td> <input type="text" class="input-form idesc"> </td>
+                    <td> <input type="text" class="input-form nkey iqnty" value="1"> </td>
+                    <td> <input type="text" class="input-form nkey urate"> </td>
+                    <td> <input type="text" class="input-form nkey price" readonly> </td>
+                </tr>                
+                   
+                <tr>
+                    <td> <input type="text" class="input-form islno" value="4" readonly> </td>
+                    <td> <input type="text" class="input-form idesc"> </td>
+                    <td> <input type="text" class="input-form nkey iqnty" value="1"> </td>
+                    <td> <input type="text" class="input-form nkey urate"> </td>
+                    <td> <input type="text" class="input-form nkey price" readonly> </td>
+                </tr>                
+                   
+                <tr>
+                    <td> <input type="text" class="input-form islno" value="5" readonly> </td>
+                    <td> <input type="text" class="input-form idesc"> </td>
+                    <td> <input type="text" class="input-form nkey iqnty" value="1"> </td>
+                    <td> <input type="text" class="input-form nkey urate"> </td>
+                    <td> <input type="text" class="input-form nkey price" readonly> </td>
+                </tr>
+            </tbody>
+
+            <tr class="bottom-row">
+                <td colspan="4"> <p class="text-medium"> Total Price: </p> </td>
+                <td> <input type="text" class="input-form no-outline" id="total-price" placeholder="Click Calculate" value="" readonly> </td>
+            </tr>                
+            <tr class="bottom-row">
+                <td colspan="4"> <p class="text-medium"> Discounts(in %): </p> </td>
+                <td> <input type="text" class="input-form nkey discount" maxlength="2" placeholder="Enter value" value=""> </td>
+            </tr>                             
+            <tr class="bottom-row">
+                <td colspan="4"> <p class="text-medium-bold"> Sub Total: <sapn class="text-lite"> <i>(Includes All)</i> </sapn> </p> </td>
+                <td> <p class="text-medium-bold">  <span id="sub-total">0</span> </p> </td>
+            </tr>            
+            <tr class="bottom-row">
+                <td colspan="1"> <p class="text-medium"> <strong>Inwords:</strong> </p> </td>
+                <td colspan="4"> <p class="text-medium inwords"> </p> </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <footer class="no-printable">
+        <div class="container">
+            <p class="text"> &copy;Copyrights: <span id="getYear"></span> || All Rights Reserved. By <a href="#"> <strong>Ariful Islam</strong> </a> </p>
+        </div>
+    </footer>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="invoice.js"></script>
+</body>
+</html>
